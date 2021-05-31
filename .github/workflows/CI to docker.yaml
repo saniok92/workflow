@@ -29,9 +29,9 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: workflow/docker/Dockerfile
+          file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/test:2
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/test-2:2
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
