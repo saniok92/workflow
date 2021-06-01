@@ -44,7 +44,7 @@ jobs:
           context: ./docker
           file: ./docker/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/add:1.1
+          tags: ${{ steps.tag_version.outputs.new_tag }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
