@@ -8,8 +8,6 @@ COPY index.html /var/www/index.html
 
 COPY style.css /var/www/style.css
 
-RUN echo 'test'
-
 EXPOSE 80 
 
 CMD ["nginx", "-g", "daemon off;"]
