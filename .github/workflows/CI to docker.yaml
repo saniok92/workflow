@@ -22,7 +22,7 @@ jobs:
           context: ./docker
           file: ./docker/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/test:33
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simple:1.0
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
