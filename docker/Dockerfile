@@ -8,6 +8,8 @@ COPY index.html /var/www/index.html
 
 COPY style.css /var/www/style.css
 
+RUN apk add nano
+
 EXPOSE 80 
 
 CMD ["nginx", "-g", "daemon off;"]
