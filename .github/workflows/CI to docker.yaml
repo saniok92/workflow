@@ -5,19 +5,13 @@ on:
       - 0.*
       - 1.*
     branches:
-      - main
+      - "main"
 jobs:
 
   build:
     runs-on: ubuntu-latest
     steps:
-      
-      - name: docker meta
-        id: meta
-        uses: docker/metadata-action@v3
-        with:
-          images: saniok92/simple  
-
+    
       - name: Check Out Repo 
         uses: actions/checkout@v2
 
@@ -38,7 +32,7 @@ jobs:
           context: ./docker
           file: ./docker/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags}}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/add:1.3
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
