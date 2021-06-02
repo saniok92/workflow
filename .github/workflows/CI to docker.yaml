@@ -5,7 +5,7 @@ on:
       - 0.*
       - 1.*
     branches:
-      - "main"
+      - main
 jobs:
 
   build:
