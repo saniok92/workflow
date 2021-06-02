@@ -2,7 +2,7 @@ name: CI to Docker Hub
 on:
   create:
     tags:
-      - "*"
+      - v*
     
 jobs:
 
