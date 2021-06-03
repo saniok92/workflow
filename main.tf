@@ -9,7 +9,7 @@ terraform {
   }
 }
 variable "do_token" {
-default = "test"
+  default = "test"
 }
 
 provider "digitalocean" {
