@@ -8,7 +8,7 @@ terraform {
     }
   }
 }
-variable "do_token" {}
+variable "TERRAFORM_VAR_DO_TOKEN" {}
 
 provider "digitalocean" {
   token = TERRAFORM_VAR_DO_TOKEN
