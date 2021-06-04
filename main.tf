@@ -8,7 +8,9 @@ terraform {
     }
   }
 }
-variable "do_token" {}
+variable "do_token" {
+  default = "TERRAFORM_VAR_DO_TOKEN"
+}
 
 provider "digitalocean" {
   token = secrets.do_token
