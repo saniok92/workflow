@@ -8,7 +8,9 @@ terraform {
     }
   }
 }
-variable "do_token" {}
+variable "do_token" {
+  token = DIGITALOCEAN_TOKEN
+}
 
 provider "digitalocean" {
   token = var.do_token
