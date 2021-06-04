@@ -8,9 +8,7 @@ terraform {
     }
   }
 }
-variable "do_token" {
-  default = test
-}
+variable "do_token" {}
 
 provider "digitalocean" {
   token = var.do_token
