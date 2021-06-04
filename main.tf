@@ -1,5 +1,3 @@
-
-
 # terraform kubernetes claster begin
 variable "do_claster_name" {
   default = "koval"
