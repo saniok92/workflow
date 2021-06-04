@@ -9,7 +9,6 @@ terraform {
   }
 }
 variable "do_token"{
-  type = string
   description = "DIGITALOCEAN_TOKEN"
   default = "ENTER VALUE"
 }
