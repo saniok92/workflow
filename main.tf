@@ -11,7 +11,7 @@ terraform {
 variable "digitalocean_token" {}
 
 provider "digitalocean" {
-  token = var.digitalocean_token
+  token = ${{ secrets.DIGITALOCEAN_TOKEN }}
 }
 # terraform kubernetes claster begin
 variable "do_claster_name" {
