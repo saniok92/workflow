@@ -13,7 +13,7 @@ variable "do_token" {
 }
 
 provider "digitalocean" {
-  token = secrets.do_token
+  token = var.do_token
 }
 
 # terraform kubernetes claster
