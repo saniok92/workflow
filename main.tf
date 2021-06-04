@@ -8,10 +8,11 @@ terraform {
     }
   }
 }
-variable "do_token"{}
+variable "do_token"{
+  do_token = ${{ secrets.DIGITALOCEAN_TOKEN }}
+}
   
 provider "digitalocean" {
-  do_token = ${{ secrets.DIGITALOCEAN_TOKEN }}
   token = var.do_token
 }
 # terraform kubernetes claster begin
