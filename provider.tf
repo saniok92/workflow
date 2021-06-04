@@ -8,10 +8,10 @@ terraform {
     }
   }
 }
-variable "DIGITALOCEAN_TOKEN" {
+variable "digitalocean_token" {
     default = "test"
 }
 
 provider "digitalocean" {
-  token = var.DIGITALOCEAN_TOKEN
+  token = var.digitalocean_token
 }
