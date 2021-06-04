@@ -9,7 +9,7 @@ terraform {
   }
 }
 variable "DIGITALOCEAN_TOKEN" {
-    default = ""
+    default = "test"
 }
 
 provider "digitalocean" {
