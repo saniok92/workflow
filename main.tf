@@ -9,7 +9,6 @@ terraform {
   }
 }
 variable "do_token"{
-  description = "DIGITALOCEAN_TOKEN"
   default = "ENTER VALUE"
 }
 provider "digitalocean" {
