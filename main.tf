@@ -11,10 +11,10 @@ terraform {
 variable "do_token" {}
 
 provider "digitalocean" {
- 
+  token = var.do_token
 }
 
-# terraform kubernetes claster
+# terraform kubernetes claster begin
 variable "do_claster_name" {
   default = "koval"
 }
