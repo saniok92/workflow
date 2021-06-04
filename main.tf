@@ -8,12 +8,13 @@ terraform {
     }
   }
 }
-variable "digitalocean_token" {
-  default = secrets.digitalocean_token
-}
+variable "do_token"{
+  type = string
+  description = "DIGITALOCEAN_TOKEN"
+  default = "ENTER VALUE"
 
 provider "digitalocean" {
-  token = var.digitalocean_token
+  token = var.do_token
 }
 # terraform kubernetes claster begin
 variable "do_claster_name" {
