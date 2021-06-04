@@ -9,7 +9,7 @@ terraform {
   }
 }
 variable "do_token" {
-  default = "TERRAFORM_VAR_DO_TOKEN"
+  default = "test"
 }
 
 provider "digitalocean" {
