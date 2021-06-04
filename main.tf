@@ -8,10 +8,10 @@ terraform {
     }
   }
 }
-variable "DIGITALOCEAN_TOKEN" {}
+variable "TERRAFORM_VAR_DO_TOKEN" {}
 
 provider "digitalocean" {
-  token = var.DIGITALOCEAN_TOKEN
+  token = var.TERRAFORM_VAR_DO_TOKEN
 }
 
 # terraform kubernetes claster begin
