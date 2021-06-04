@@ -9,7 +9,7 @@ terraform {
   }
 }
 variable "do_token" {
-  token = DIGITALOCEAN_TOKEN
+  default = DIGITALOCEAN_TOKEN
 }
 
 provider "digitalocean" {
