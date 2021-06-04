@@ -9,7 +9,7 @@ terraform {
   }
 }
 variable "do_token"{
-  do_token = ${{ secrets.DIGITALOCEAN_TOKEN }}
+  do_token = ${{ secrets.digitalocean_token}}
 }
   
 provider "digitalocean" {
