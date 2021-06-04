@@ -8,12 +8,10 @@ terraform {
     }
   }
 }
-variable "do_token" {
-  default = "secrets.TERRAFORM_VAR_DO_TOKEN"
-}
+variable "do_token" {}
 
 provider "digitalocean" {
-  token = var.do_token
+  token = secrets.do_token
 }
 
 # terraform kubernetes claster
