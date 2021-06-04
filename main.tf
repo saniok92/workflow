@@ -1,19 +1,12 @@
 #terraform provider 
 
-terraform {
-  required_providers {
-    digitalocean = {
-      source  = "digitalocean/digitalocean"
-      version = "~> 2.0"
-    }
-  }
-}
+
 variable "do_token" {
   default = "test"
 }
 
 provider "digitalocean" {
-  token = "secrets.do_token"
+  token = var.do_token
 }
 
 # terraform kubernetes claster
