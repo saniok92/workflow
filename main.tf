@@ -9,7 +9,7 @@ terraform {
   }
 }
 variable "digitalocean_token" {
-    default = "test"
+    default = ""
 }
 
 provider "digitalocean" {
@@ -31,4 +31,3 @@ resource "digitalocean_kubernetes_cluster" "koval" {
     node_count = 1
   }
 }
-
