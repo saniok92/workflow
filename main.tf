@@ -10,7 +10,7 @@ terraform {
 variable "do_token" {}
 
 provider "digitalocean" {
-  digitalocean_token = var.do_token
+  secrets = var.do_token
 }
 
 variable "do_claster_name" {
@@ -28,8 +28,5 @@ resource "digitalocean_kubernetes_cluster" "koval" {
     node_count = 1
   }
 }
-
-
-
 
 
