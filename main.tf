@@ -10,7 +10,7 @@ terraform {
 variable "do_token" {}
 
 provider "digitalocean" {
-  secrets = var.do_token
+  TF_VAR_DO_TOKEN = var.do_token
 }
 
 variable "do_claster_name" {
