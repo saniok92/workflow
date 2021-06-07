@@ -10,8 +10,7 @@ terraform {
 }
 
 variable "do_token" {
-  type = string
-  sensitive = true
+  default = "digitalocean_token"
 }
 
 provider "digitalocean" {
