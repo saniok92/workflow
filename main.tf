@@ -9,7 +9,8 @@ terraform {
   }
 }
 variable "do_token"{
-  do_token = secrets.digitalocean_token
+  type = string
+  sensitive = true
 }
   
 provider "digitalocean" {
