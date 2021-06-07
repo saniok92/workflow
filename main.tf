@@ -10,7 +10,7 @@ terraform {
 }
 
 variable "do_token" {
-  default = test
+  default = secrets.terraform_var_do_token
 }
 
 provider "digitalocean" {
