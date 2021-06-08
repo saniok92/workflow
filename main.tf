@@ -1,20 +1,16 @@
 terraform {
   required_providers {
     digitalocean = {
-      source = "digitalocean/digitalocean"
+      source  = "digitalocean/digitalocean"
       version = "2.9.0"
     }
   }
 }
 
-variable "digitalocean_token" {}
+variable "do_token" {}
 
 provider "digitalocean" {
-  token = var.digitalocean_token
-}
-
-variable "do_claster_name" {
-  default = "koval"
+  token = var.do_token
 }
 
 resource "digitalocean_kubernetes_cluster" "koval" {
