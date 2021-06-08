@@ -89,6 +89,7 @@ jobs:
     - name: Terraform Plan
       run: terraform plan 
       env:
+        token: ${{ secrets.DIGITALOCEAN_TOKEN }}
         DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
         TF_VAR_DO_TOKEN: ${{ secrets.TF_VAR_DO_TOKEN }}
 
