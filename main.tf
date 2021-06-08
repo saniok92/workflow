@@ -2,7 +2,7 @@ terraform {
   required_providers {
     digitalocean = {
       source = "digitalocean/digitalocean"
-      version = "~> 2.0"
+      version = "2.9.0"
     }
   }
 }
@@ -10,7 +10,7 @@ terraform {
 variable "do_token" {}
 
 provider "digitalocean" {
-  TF_VAR_DO_TOKEN = var.do_token
+  digitalocean_token = var.do_token
 }
 
 variable "do_claster_name" {
