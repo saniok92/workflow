@@ -7,10 +7,10 @@ terraform {
   }
 }
 
-variable "do_token" {}
+secrets "do_token" {}
 
 provider "digitalocean" {
-  token = var.do_token
+  token = secrets.do_token
 }
 
 variable "do_claster_name" {
