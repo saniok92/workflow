@@ -7,7 +7,6 @@ terraform {
   }
 }
 
-secrets "do_token" {}
 
 provider "digitalocean" {
   token = secrets.do_token
