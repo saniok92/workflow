@@ -9,7 +9,6 @@ terraform {
 
 variable "do_token" {
   type = string
-  required = yes
 }
 
 provider "digitalocean" {
