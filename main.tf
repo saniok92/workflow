@@ -1,3 +1,9 @@
+variable "do_token" {}
+
+variable "do_claster_name" {
+  default = "koval"
+}
+
 terraform {
   required_providers {
     digitalocean = {
@@ -6,6 +12,7 @@ terraform {
     }
   }
 }
+
 
 provider "digitalocean" {
   token = var.do_token
