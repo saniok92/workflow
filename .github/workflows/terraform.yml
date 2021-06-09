@@ -87,8 +87,9 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan  
-      env:
-        do_token: ${{ secrets.DIGITALOCEAN_TOKEN }}
+      with:
+        variables: | 
+          do_token: ${{ secrets.DIGITALOCEAN_TOKEN }}
 
 
       # On push to main, build or change infrastructure according to Terraform configuration files
