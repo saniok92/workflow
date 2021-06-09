@@ -7,9 +7,7 @@ terraform {
   }
 }
 
-variable "do_token" {
-  export terraform_var_do_token = "3ff39b0eabd0e183dc83a914a6bdf3ee88242ff5b2f6342ff376f0943726808a"
-}
+variable "do_token" {}
 
 provider "digitalocean" {
   token = var.do_token
