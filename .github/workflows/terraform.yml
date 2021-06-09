@@ -80,12 +80,12 @@ jobs:
       run: terraform fmt -check
 
     # Generates an execution plan for Terraform
-    - name: Terraform Plan
+    - name: Terraform Plan -var "do_token=${DO_PAT}"
       run: terraform plan 
 
     - name: Terraform Apply 
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform apply  -auto-approve 
+      run: terraform apply  -var "do_token=${DO_PAT}" -auto-approve 
       
       
       
