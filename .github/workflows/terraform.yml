@@ -65,6 +65,10 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v2
+      with: 
+        token: ${{ secrets.DIGITALOCEAN_TOKEN }}
+      env: # Or as an environment variable
+        token: ${{ secrets.DIGITALOCEAN_TOKEN }}
 
     - name: Install doctl
       uses: digitalocean/action-doctl@v2
@@ -88,8 +92,6 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan 
-      env:
-        token: ${{ secrets.TF_VAR_DO_TOKEN }}
 
       # On push to main, build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
