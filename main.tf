@@ -7,7 +7,10 @@ terraform {
   }
 }
 
-variable "do_token" {}
+variable "do_token" {
+  type = string
+  required = yes
+}
 
 provider "digitalocean" {
   token = var.do_token
