@@ -42,15 +42,15 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan 
-      run: terraform plan -var "do_token=${TF_VAR_do_token}"
+      run: terraform plan -var "do_token=${do_token}"
       env:
-        TF_VAR_do_token: ${{ secrets.DIGITALOCEAN_TOKEN }}
+        do_token: ${{ secrets.DIGITALOCEAN_TOKEN }}
 
     - name: Terraform Apply 
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform apply  -var "do_token=${TF_VAR_do_token}" -auto-approve 
+      run: terraform destroy  -var "do_token=${do_token}" -auto-approve 
       env:
-        TF_VAR_do_token: ${{ secrets.DIGITALOCEAN_TOKEN }}
+        do_token: ${{ secrets.DIGITALOCEAN_TOKEN }}
  
       
       
