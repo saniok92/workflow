@@ -3,7 +3,9 @@ name: CI to Docker Hub
 on:
   push:
     tags:
-      - '*'
+      - '0.*.*'
+      - '1.*.*'
+      - '2.*.*'
     
 jobs:
 
