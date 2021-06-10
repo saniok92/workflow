@@ -1,9 +1,3 @@
-variable "do_token" {}
-
-variable "do_claster_name" {
-  default = "koval"
-}
-
 terraform {
   required_providers {
     digitalocean = {
@@ -13,11 +7,15 @@ terraform {
   }
 }
 
-
+ variable "do_token" {}
+ 
 provider "digitalocean" {
   token = var.do_token
 }
 
+variable "do_claster_name" {
+  default = "koval"
+}
 resource "digitalocean_kubernetes_cluster" "koval" {
   name    = "koval"
   region  = "fra1"
