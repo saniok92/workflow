@@ -21,7 +21,7 @@ resource "digitalocean_kubernetes_cluster" "koval" {
   node_pool {
     name       = "test-pool"
     size       = "s-1vcpu-2gb"
-    node_count = 0
+    node_count = 1
   }
 }
 

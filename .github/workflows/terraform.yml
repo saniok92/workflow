@@ -48,7 +48,7 @@ jobs:
 
     - name: Terraform Apply 
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform apply  -var "do_token=${secret}" -auto-approve 
+      run: terraform destroy  -var "do_token=${secret}" -auto-approve 
       env:
         secret: ${{ secrets.DIGITALOCEAN_TOKEN }}
  
