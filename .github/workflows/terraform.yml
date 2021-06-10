@@ -42,9 +42,9 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan 
-      with:
-        do_token: ${{ secrets.DIGITALOCEAN_TOKEN }}
       run: terraform plan 
+      env:
+        do_token: ${{ secrets.DIGITALOCEAN_TOKEN }}
 
     - name: Terraform Apply 
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
