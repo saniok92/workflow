@@ -36,11 +36,19 @@ jobs:
     - name: Terraform Init
       run: terraform init
 
-  
+    # Checks that all Terraform configuration files adhere to a canonical format
+    - name: Terraform Format
+      run: terraform fmt -check
 
-    - name: Terraform Destroy
+    # Generates an execution plan for Terraform
+    - name: Terraform Plan 
+      run: terraform plan -var "do_token=${secret}"
+      env:
+        secret: ${{ secrets.DIGITALOCEAN_TOKEN }}
+
+    - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform destroy  -var "do_token=${secret}" -auto-approve 
+      run: terraform apply  -var "do_token=${secret}" -auto-approve 
       env:
         secret: ${{ secrets.DIGITALOCEAN_TOKEN }}
  
