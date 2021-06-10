@@ -13,17 +13,10 @@ provider "digitalocean" {
   token = var.do_token
 }
 
-<<<<<<< HEAD
 variable "do_claster_name" {
   default = "koval"
 } 
 
-=======
-
-variable "do_claster_name" {
-    default = "koval"
-}
->>>>>>> 21c7b2c07c7a38f16a99dc98dbffc0b96ef5d2f3
 resource "digitalocean_kubernetes_cluster" "koval" {
   name    = "koval"
   region  = "fra1"
