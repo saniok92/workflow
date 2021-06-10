@@ -48,8 +48,9 @@ jobs:
 
     - name: Terraform Apply 
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform apply -auto-approve 
-
+      run: terraform apply  -var "do_token=${DIGITALOCEAN_TOKEN}" -auto-approve 
+      env:
+        do_token: ${{ secrets.DIGITALOCEAN_TOKEN }}
  
       
       
