@@ -33,5 +33,33 @@ jobs:
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
+    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+      - name: Terraform Init
+        run: terraform init
 
+    # Checks that all Terraform configuration files adhere to a canonical format
+      - name: Terraform Format
+        run: terraform fmt -check
+
+    # Generates an execution plan for Terraform
+      - name: Terraform Plan 
+        run: terraform plan -var "do_token=${secret}"
+        env:
+          secret: ${{ secrets.DIGITALOCEAN_TOKEN }}
+
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform apply  -var "do_token=${secret}" -auto-approve 
+        env:
+          secret: ${{ secrets.DIGITALOCEAN_TOKEN }}
+
+      - name: Set up kubectl
+        uses: matootie/dokube@v1.3.4
+        with:
+          personalAccessToken: ${{ secrets.DIGITALOCEAN_TOKEN }}
+          clusterName: koval
+
+      - name: Get nodes
+        run: kubectl get nodes
+ 
       
