@@ -46,19 +46,19 @@ jobs:
         run: terraform plan -var "do_token=${secret}"
         env:
           secret: ${{ secrets.DIGITALOCEAN_TOKEN }}
-
+    # Apply terraform plan 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply  -var "do_token=${secret}" -auto-approve 
         env:
           secret: ${{ secrets.DIGITALOCEAN_TOKEN }}
-
+    # install kubectl
       - name: Set up kubectl
         uses: matootie/dokube@v1.3.4
         with:
           personalAccessToken: ${{ secrets.DIGITALOCEAN_TOKEN }}
           clusterName: koval
-
+    # test conection node digitalocean
       - name: Get nodes
         run: kubectl get nodes
  
