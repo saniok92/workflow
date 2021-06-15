@@ -65,13 +65,10 @@ jobs:
     # helm
       - name: Helm tool installer
         uses: Azure/setup-helm@v1
-
-      - name: run helm chart
-        uses: helm\chart-releaser-action@v1.2.1
-        env:
-          CR_TOKEN: "${{ secrets.DIGITALOCEAN_TOKEN }}"
         with:
           command: helm install deployment.yaml
+
+     
         
 
  
