@@ -68,11 +68,7 @@ jobs:
 
       - name: run helm chart
         run: helm install deployment.yaml
-        with:
-          context: ./helm_simple
-          file: ./helm_simple/templates/deployment.yaml
-      - run: helm list
-
+        
 
  
       
