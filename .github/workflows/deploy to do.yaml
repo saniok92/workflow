@@ -62,7 +62,6 @@ jobs:
     # save digitalocean config
       - name: Save digitalocean kubeconfig
         run: doctl kubernetes cluster kubeconfig save koval
-      - run: cd ~/.kube && kubectl --kubeconfig="koval-kubeconfig.yaml" get nodes
     # helm
       - name: Helm tool installer
         uses: Azure/setup-helm@v1
