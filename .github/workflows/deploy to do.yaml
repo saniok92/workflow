@@ -68,9 +68,7 @@ jobs:
 
       - name: run helm chart
         uses: helm\chart-releaser-action@v1.2.1
-        with:
-          context: ./helm_simple
-          file: ./helm_simple/templates/deployment.yaml
+       
         
 
  
