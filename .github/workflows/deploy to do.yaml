@@ -62,12 +62,16 @@ jobs:
     # save digitalocean config
       - name: Save digitalocean kubeconfig
         run: doctl kubernetes cluster kubeconfig save koval
+      - run: cd ~/.kube && kubectl --kubeconfig="koval-kubeconfig.yaml" get nodes
     # helm
       - name: Helm tool installer
         uses: Azure/setup-helm@v1
 
       - name: run helm chart
-        run: helm install deployment.yaml
+        uses: helm\chart-releaser-action@v1.2.1
+        with:
+          context: ./helm_simple
+          file: ./helm_simple/templates/deployment.yaml
         
 
  
