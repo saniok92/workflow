@@ -16,37 +16,35 @@ jobs:
     steps: 
       - name: Check Out Repo
         uses: actions/checkout@v2
-# login to dockerhub
+    # login to dockerhub
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-# install doctl
+    # install doctl
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_TOKEN }}
-# setup terraform
+    # setup terraform
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+    # Terraform part workflow
       - name: Terraform Init
         run: terraform init
 
-    # Checks that all Terraform configuration files adhere to a canonical format
       - name: Terraform Format
         run: terraform fmt -check
 
-    # Generates an execution plan for Terraform
       - name: Terraform Plan 
         run: terraform plan -var "do_token=${secret}"
         env:
           secret: ${{ secrets.DIGITALOCEAN_TOKEN }}
-    # Apply terraform plan 
+
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply  -var "do_token=${secret}" -auto-approve 
@@ -61,5 +59,20 @@ jobs:
     # test conection node digitalocean
       - name: Get nodes
         run: kubectl get nodes
+    # save digitalocean config
+      - name: Save digitalocean kubeconfig
+        run: doctl kubernetes cluster kubeconfig save koval
+    # helm
+      - name: Helm tool installer
+        uses: Azure/setup-helm@v1
+
+      - name: run helm chart
+        run: helm install deployment.yaml
+        with:
+          context: ./helm_simple
+          file: ./helm_simple/templates/deployment.yaml
+      - run: helm list
+
+
  
       
