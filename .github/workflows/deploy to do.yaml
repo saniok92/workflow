@@ -69,7 +69,7 @@ jobs:
       - run: helm repo add bitnami https://charts.bitnami.com/bitnami
        
       - name: run crart-releaser
-        uses: helm/chart-releases-action@v1.1.0
+        uses: helm/chart-releaser-action@v1.1.0
         env:
           CR_TOKEN: "${{ secrets.DIGITALOCEAN_TOKEN }}"
       - run: helm install my-app deployment.yaml
