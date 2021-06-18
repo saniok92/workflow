@@ -72,7 +72,7 @@ jobs:
         uses: helm/chart-releaser-action@v1.1.0
         env:
           CR_TOKEN: "${{ secrets.DIGITALOCEAN_TOKEN }}"
-      - run: helm install my-app deployment.yaml
+      - run: helm install my-app 
 
      
         
