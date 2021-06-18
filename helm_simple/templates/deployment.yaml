@@ -27,7 +27,7 @@ metadata:
   name: {{ .Release.Name }}
 spec:
   selector:
-    app: {{ .Release.Name }}
+    project: {{ .Release.Name }}
   type: NodePort
   ports:
     - protocol: TCP
