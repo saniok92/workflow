@@ -65,8 +65,14 @@ jobs:
     # helm
       - name: Helm tool installer
         uses: Azure/setup-helm@v1
-        with:
-          command: helm install deployment.yaml
+
+      - run: helm repo add bitnami https://charts.bitnami.com/bitnami
+       
+      - name: run crart-releaser
+        uses: helm/chart-releases-action@v1.1.0
+        env:
+          CR_TOKEN: "${{ secrets.DIGITALOCEAN_TOKEN }}"
+        run: helm install my-app deployment.yaml
 
      
         
