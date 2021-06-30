@@ -40,7 +40,7 @@ jobs:
       run: terraform plan -var "do_token=${secret}"
       env:
         secret: ${{ secrets.DIGITALOCEAN_TOKEN }}
-
+    # Apply terraform configuration
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply  -var "do_token=${secret}" -auto-approve 
