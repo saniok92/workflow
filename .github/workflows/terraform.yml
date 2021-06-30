@@ -3,7 +3,8 @@ name: 'Terraform'
 on:
   push:
     tags:
-      - 'terraform'
+      - 'v'
+
 
 jobs:
   terraform:
