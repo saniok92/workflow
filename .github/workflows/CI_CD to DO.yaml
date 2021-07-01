@@ -50,9 +50,3 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.DIGITALOCEAN_TOKEN }}"
       
-
-     
-        
-
- 
-      
