@@ -16,12 +16,6 @@ jobs:
     steps: 
       - name: Check Out Repo
         uses: actions/checkout@v2
-    # login to dockerhub
-      - name: Login to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
     # install doctl
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
@@ -42,11 +36,33 @@ jobs:
     # helm
       - name: Helm tool installer
         uses: Azure/setup-helm@v1
-
-      - run: helm repo add bitnami https://charts.bitnami.com/bitnami
        
       - name: run crart-releaser
         uses: helm/chart-releaser-action@v1.1.0
         env:
           CR_TOKEN: "${{ secrets.DIGITALOCEAN_TOKEN }}"
+    # add script
+      - name: GitHub Script
+        uses: actions/github-script@v4.0.2
+        with:
+          script: |
+            
+            doctl kubernetes cluster kubeconfig save 72cebbe0-2b40-4c26-82b0-cdff31173d0b
+            
+            curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+            chmod 700 get_helm.sh
+            ./get_helm.sh
+
+            sudo apt install -y git 
+
+            git clone https://github.com/saniok92/workflow.git
+            cd workflow
+            cp helm ~/.kube
+            cd ~/.kube
+            helm install app helm/
+
+
+
+
+    
       
