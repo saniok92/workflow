@@ -47,7 +47,6 @@ jobs:
         with:
           script: |
 
-
             sudo apt install -y git 
 
             git clone https://github.com/saniok92/workflow.git
