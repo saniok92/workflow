@@ -8,6 +8,6 @@ sudo apt install -y git
 
 git clone https://github.com/saniok92/workflow.git
 cd workflow
-cp helm ~/.kube
+cp -r helm ~/.kube
 cd ~/.kube
 helm install app helm/
