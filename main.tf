@@ -24,4 +24,3 @@ resource "digitalocean_kubernetes_cluster" "koval" {
     node_count = 1
   }
 }
-
