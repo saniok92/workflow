@@ -33,6 +33,9 @@ jobs:
     # save digitalocean config
       - name: Save digitalocean kubeconfig
         run: doctl kubernetes cluster kubeconfig save koval
+    # add Ingress Nginx
+      - name: add Ingress-Nginx 
+        run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.48.1/deploy/static/provider/do/deploy.yaml
     # helm
       - name: Helm tool installer
         uses: Azure/setup-helm@v1
