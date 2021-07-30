@@ -36,6 +36,13 @@ jobs:
     # add Ingress Nginx
       - name: add Ingress-Nginx 
         run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.48.1/deploy/static/provider/do/deploy.yaml
+      
+      - name: apply Ingress-Nginx
+        run: kubectl apply -f ingress.yaml
+        with:
+          context: ./
+          file: ./ingress.yaml
+
     # helm
       - name: Helm tool installer
         uses: Azure/setup-helm@v1
