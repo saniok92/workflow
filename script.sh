@@ -11,3 +11,5 @@ cd workflow
 cp -r helm ~/.kube
 cd ~/.kube
 helm install app helm/
+kubectl apply -f ingress.yaml
+
