@@ -2,7 +2,7 @@ terraform {
   required_providers {
     digitalocean = {
       source  = "digitalocean/digitalocean"
-      version = "2.9.0"
+      version = "2.10.1"
     }
   }
 }
@@ -24,3 +24,45 @@ resource "digitalocean_kubernetes_cluster" "koval" {
     node_count = 1
   }
 }
+
+resource "digitalocean_certificate" "cert" {
+  name = "cert"
+  private_key = "file('key.pem')"
+  leaf_certificate = "file('cert.pem')"
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "digitalocean_loadbalancer" "sample" {
+  name = "loadbalancer-classic"
+  size = "lb-small"
+  region = "fra1"
+
+  forwarding_rule {
+    entry_port = 443
+    entry_protocol = "https"
+
+    target_port = 80
+    target_protocol = "http"
+
+    certificate_name  = digitalocean_certificate.cert.name
+  }
+
+  healthcheck {
+    port = 22
+    protocol = "tcp"
+  }
+
+  droplet_ids  = [digitalocean_droplet.web.id]
+}
+
+
+
+  
+
+
+
+
+
