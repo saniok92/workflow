@@ -4,7 +4,14 @@
 							/* body*/
 body, html {
 	font-family: 'Poppins', sans-serif;
-	color: #222;
+	color: rgb(54, 34, 34);
     background-color:ivory;
+	text-align: center;
+	font-size: 40pt;
 }
-
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}

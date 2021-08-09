@@ -11,7 +11,7 @@ metadata:
 
 spec:
   rules:
-  - host: koval92.xyz
+  - host: www.koval92.xyz
     http:
       paths:
         - backend:
@@ -20,7 +20,7 @@ spec:
           path: /
   tls:
     - hosts:
-      - koval92.xyz
+      - www.koval92.xyz
       secretName: koval92-test 
 
  
