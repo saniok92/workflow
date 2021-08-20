@@ -1,4 +1,4 @@
-FROM nginx:1.21.0-alpine
+FROM nginx:1.21.1-alpine
 
 WORKDIR /app
 
@@ -7,6 +7,8 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY index.html /var/www/index.html
 
 COPY style.css /var/www/style.css
+
+COPY do.png /var/www/do.png
 
 EXPOSE 80 
 
