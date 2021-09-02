@@ -25,21 +25,28 @@ img {
 .social {
 	font-size: 2em;
 	padding: 2px;
+	display: inline-block;
+	margin-right: 12px;
 
 }
-.fa-facebook-f {color:#3b5998}
-.fa-instagram {color:#517fa4}
-.fa-google {color:#bb4b39}
-.fa-twitter {color:#00aced}
-.fa-youtube {color:#bb0000}
+span{
+	margin-left: 12px;
+	font-size: 16px;
+	color: aliceblue;
+}
+.fa-facebook-f {margin-left: 10px; color:#3b5998}
+.fa-instagram {margin-left: 10px; color:#ec4a65}
+.fa-telegram {margin-left: 10px; color:#00aced}
+.fa-linkedin-in {margin-left: 10px; color:#0080ff}
+.fa-github {margin-left: 10px; color: #ece7f1;}
 
-.fa-facebook-f:hover, .fa-google:hover,
-.fa-instagram:hover, .fa-twitter:hover, 
-.fa-youtube:hover {color: #ccc}
+.fa-facebook-f:hover,
+.fa-instagram:hover, .fa-telegram:hover, 
+.fa-linkedin-in:hover, .fa-github:hover {color: #ccc}
 
 footer { 
-	background-color: #4F3535;
-	padding-top: 10px;
+	background-color: #02020f;
+	padding-top: 5px;
 	border-top: 2px solid silver;
 	color: antiquewhite;
 	margin-bottom: 0
