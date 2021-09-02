@@ -8,7 +8,7 @@ COPY index.html /var/www/index.html
 
 COPY style.css /var/www/style.css
 
-COPY do.png /var/www/do.png
+COPY images /var/www/images
 
 EXPOSE 80 
 
