@@ -4,6 +4,7 @@ metadata:
   name: {{ .Release.Name }}
   annotations:
     kubernetes.io/ingress.class: "nginx"
+spec:
   rules:
   - host: koval92.xyz
     http:
