@@ -2,8 +2,7 @@ name: 'Terraform'
 
 on:
   push:
-    tags: 
-      - 'v.*.*'
+  
 
 
 jobs:
