@@ -2,6 +2,11 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: {{ .Release.Name }}
+<<<<<<< HEAD
+=======
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+>>>>>>> 58244e4b10cc7fdff1b25d1717e2e77e83f7b3c7
 spec:
   rules:
   - host: koval92.xyz
