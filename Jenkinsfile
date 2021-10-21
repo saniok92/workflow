@@ -1,10 +1,7 @@
 properties ([disableConcurrentBuilds()])
 
 pipeline{
-    agent any
-    tools {
-        terraform 'terraform'
-    }
+    agent {label 'linux'}
     environment {
         do_token = credentials('DIGITALOCEAN_TOKEN')
     }
