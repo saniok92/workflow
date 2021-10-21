@@ -22,13 +22,7 @@ pipeline{
         
         stage('Terraform Apply '){
             steps{
-<<<<<<< HEAD
-                
                sh 'echo $do_token | terraform apply  -auto-approve -no-color'
-                
-=======
-                sh 'terraform apply -var "do_token=" -auto-approve'
->>>>>>> d6058e97cbb69a7b8fed7ba1110d885897c278d3
             }
         }
     }    
