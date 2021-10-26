@@ -2,7 +2,7 @@ terraform {
   required_providers {
     digitalocean = {
       source  = "digitalocean/digitalocean"
-      version = "2.14.0"
+      version = "2.10.2"
     }
   }
 }
@@ -16,7 +16,7 @@ provider "digitalocean" {
 resource "digitalocean_kubernetes_cluster" "koval" {
   name    = "koval"
   region  = "fra1"
-  version = "1.21.3-do.0"
+  version = "1.21.5-do.0"
 
   node_pool {
     name       = "test"
