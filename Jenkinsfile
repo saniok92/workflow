@@ -22,5 +22,21 @@ pipeline{
                sh 'echo $do_token | terraform apply  -auto-approve -no-color'
             }
         }
+        stage('install NGINX Ingress Controller') {
+               steps {
+
+        stage('install NGINX Ingress Controller') {
+            steps {
+                sh ' kubectl create namespace ingress-nginx-2 &
+                     helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+                     helm repo update
+                     helm install ingress-nginx-2 ingress-nginx/ingress-nginx  \
+                     --namespace ingress-nginx-2 \
+                     --set controller.ingressClassResource.name=nginx-2 \
+                     --set controller.ingressClassResource.controllerValue="k8s.io/ingress-nginx-2" \
+                     --set controller.ingressClassResource.enabled=true \
+                     --set controller.ingressClassByName=true '
+                }
+       }
     }    
 }
