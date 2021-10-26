@@ -8,7 +8,7 @@ pipeline{
     stages{
         stage('Git Checkout'){
             steps{
-                git branch: 'main', credentialsId: 'github-ssh-key', url: 'git@github.com:saniok92/workflow.git'
+                git branch: 'main', credentialsId: 'github-ssh', url: 'git@github.com:saniok92/workflow.git'
             }
         }    
         stage('Terraform init'){
@@ -16,7 +16,7 @@ pipeline{
                 sh 'terraform init'
             }
         }
-        
+         
         stage('Terraform Apply '){
             steps{
                sh 'echo $do_token | terraform apply  -auto-approve -no-color'
